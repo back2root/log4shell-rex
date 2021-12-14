@@ -27,7 +27,26 @@ The Regex aims being PCRE compatible.
 ${Log4ShellRex}
 \`\`\`
 
+## Capabilities
+
+By now, this regex should match the exploit, regardless:
+
+- Just logged
+- Case insensitive (also in all supported encodings)
+- URL Encoded
+- Recursively URL Encoded
+- With Unicode encoding
+- With Octal encoding
+- Base64 encoded
+
+If this RegEx does not match sth. you have seen in the wild or can show being exploitable, please
+create an issue.
+
+### Screenshot
+
 ![Example Screenshot](screenshots/example_1.png)
+
+(Not the current version)
 
 ## Hunting on your Linux machine
 
@@ -59,12 +78,12 @@ You can use this RegEx to search your indexed logs using the \`| regex\`
 [SPL](https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/Regex) command
 
 \`\`\`spl
-index=nix sourcetype=...
+index=<...> sourcetype=<...> "%{"
 | regex "<Log4ShellRex>"
 \`\`\`
 
 \`\`\`spl
-index=nix sourcetype=...
+index=<...> sourcetype=<...> "%{"
 | regex "${Log4ShellRex}"
 \`\`\`
 
@@ -77,4 +96,5 @@ index=nix sourcetype=...
 I got help and ideas from:
 
 - [@cyberops](https://twitter.com/cyb3rops) building [log4shell-detector](https://github.com/Neo23x0/log4shell-detector/) that served as an inspiration
+- [@karanlyons](https://github.com/karanlyons) providing corpus to test against
 EOF
