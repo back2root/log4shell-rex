@@ -15,7 +15,8 @@ base64 -d <<< "IF8gICAgICAgICAgICAgICAgXyAgXyAgX19fXyAgXyAgICAgICAgICBfIF8gICAgI
 dollar='(?:\$|(?:%(?:25)*|\\00)24|\\0{0,2}?44)'
 curly_open='(?:{|(?:%(?:25)*|\\00)7[Bb]|\\0{0,2}?173)'
 colon='(?::|(?:%(?:25)*|\\00)3[Aa]|\\0{0,2}?72)'
-slash='(?:\/|(?:%(?:25)*|\\00)2[Ff]|\\0{0,2}?57)'
+# shellcheck disable=SC2016
+slash='(?:\/|(?:%(?:25)*|\\00)2[Ff]|\\0{0,2}?57|\${)'
 sp='.{0,30}?'
 
 # Basic Alphabet (some letters are prepared but not yet used)
