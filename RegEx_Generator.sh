@@ -24,7 +24,7 @@ a='(?:A|a|(?:%(?:25)*|\\00)[46]1|\\0{0,2}?1[04]1)'
 b='(?:B|b|(?:%(?:25)*|\\00)[46]2|\\0{0,2}?1[04]2)'
 c='(?:C|c|(?:%(?:25)*|\\00)[46]3|\\0{0,2}?1[04]3)'
 d='(?:D|d|(?:%(?:25)*|\\00)[46]4|\\0{0,2}?1[04]4)'
-#e='(?:E|e|(?:%(?:25)*|\\00)[46]5|\\0{0,2}?1[04]5)'
+e='(?:E|e|(?:%(?:25)*|\\00)[46]5|\\0{0,2}?1[04]5)'
 #f='(?:F|f|(?:%(?:25)*|\\00)[46]6|\\0{0,2}?1[04]6)'
 #g='(?:G|g|(?:%(?:25)*|\\00)[46]7|\\0{0,2}?1[04]7)'
 h='(?:H|h|(?:%(?:25)*|\\00)[46]8|\\0{0,2}?1[15]0)'
@@ -63,6 +63,12 @@ https="${h}(?:${sp}${t}){2}${sp}${p}(?:${sp}${s})?"
 # ${jndi:(ldap[s]?|rmi|dns|nis|iiop|corba|nds|http):
 
 protocols="(${ldaps}|${rmi}|${dns}|${nis}|${iiop}|${corba}|${nds}|${https})"
-Log4ShellRex="${dollar}${curly_open}${sp}${jndi}${sp}${colon}${sp}${protocols}${sp}${colon}${sp}${slash}"
+
+b64_enc='(JH[s-v]|[\x2b\x2f-9A-Za-z][CSiy]R7|[\x2b\x2f-9A-Za-z]{2}[048AEIMQUYcgkosw]ke[\x2b\x2f-9w-z])'
+b64="${b}${sp}${a}${sp}${s}${sp}${e}.{2,60}?${colon}${b64_enc}"
+
+plain="${jndi}${sp}${colon}${sp}${protocols}${sp}${colon}${sp}${slash}"
+
+Log4ShellRex="${dollar}${curly_open}${sp}(${plain}|${b64})"
 
 echo "Log4ShellRex='${Log4ShellRex}'"
