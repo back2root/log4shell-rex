@@ -44,9 +44,9 @@ create an issue.
 
 ### Screenshot
 
-![Example Screenshot](screenshots/example_1.png)
+![Example Screenshot](screenshots/example_2.png)
 
-(Not the current version)
+Test on **[regex101](https://regex101.com/r/KqGG3W/1)**.
 
 ## Hunting on your Linux machine
 
