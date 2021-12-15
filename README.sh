@@ -78,13 +78,13 @@ You can use this RegEx to search your indexed logs using the \`| regex\`
 [SPL](https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/Regex) command
 
 \`\`\`spl
-index=<...> sourcetype=<...> "%{"
+index=<...> sourcetype=<...>
 | regex "<Log4ShellRex>"
 \`\`\`
 
 \`\`\`spl
-index=<...> sourcetype=<...> "%{"
-| regex "${Log4ShellRex}"
+index=<...> sourcetype=<...>
+| regex "${Log4ShellRex//\\/\\\\}"
 \`\`\`
 
 ## Other
