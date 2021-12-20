@@ -42,10 +42,10 @@ https="${h}(?:${sp}${t}){2}${sp}${p}(?:${sp}${s})?"
 protocols="(${ldaps}|${rmi}|${dns}|${nis}|${iiop}|${corba}|${nds}|${https})"
 
 b64_enc='(JH[s-v]|[\x2b\x2f-9A-Za-z][CSiy]R7|[\x2b\x2f-9A-Za-z]{2}[048AEIMQUYcgkosw]ke[\x2b\x2f-9w-z])'
-b64="${b}${sp}${a}${sp}${s}${sp}${e}.{2,60}?${colon}${b64_enc}"
+b64="${b}${sp}${a}${sp}${s}${sp}${e}${sp}${colon}${b64_enc}"
 
 plain="${jndi}${sp}${colon}${sp}${protocols}${sp}${colon}"
 
-Log4ShellRex="(?im)(?:^|[\n])${dollar}${curly_open}${sp}(${plain}|${b64})"
+Log4ShellRex="(?im)(?:^|[\n]).*?${dollar}${curly_open}${sp}(${plain}|${b64})"
 
 echo "Log4ShellRex='${Log4ShellRex}'"
