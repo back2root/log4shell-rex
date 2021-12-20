@@ -174,8 +174,8 @@ public class Alphabet {
 			HashSet<String> list = new HashSet<>();
 
 			for (int codePoint : this.codePoints) {
-				String hex = Integer.toOctalString(codePoint);
-				list.add(hex);
+				list.add(Integer.toHexString(codePoint));
+				list.add(Integer.toOctalString(codePoint));
 			}
 
 			StringBuilder sb = new StringBuilder();
